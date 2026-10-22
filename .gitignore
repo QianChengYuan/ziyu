@@ -1,0 +1,17 @@
+# 构建产物
+target/
+**/target/
+
+# 音频输出
+*.wav
+
+# 临时脚本
+diag.py
+
+# IDE / 系统
+.vscode/
+.idea/
+*.log
+# LSP / IDE 缓存
+.cache/
+.arts/

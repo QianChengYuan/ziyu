@@ -1,0 +1,17 @@
+# ============================================================================
+# examples/local —— 本地合成示例（纯仓颉，零 FFI）
+#
+# 仅依赖 ziyu 核心库：文本前端 → 本地共振峰 backend → PCM → WAV。
+# 覆盖：文本归一化 / 音素+韵律 / 多音字+变调 / 流式合成 / 云端回环。
+#
+# 运行：cd examples/local && cjpm run
+# ============================================================================
+[package]
+  cjc-version = "1.1.0"
+  name = "ziyu_example_local"
+  version = "0.1.0"
+  output-type = "executable"
+  compile-option = "-O2 -Woff unused"
+
+[dependencies]
+  ziyu = { path = "../.." }

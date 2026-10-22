@@ -1,0 +1,23 @@
+# ============================================================================
+# examples/play —— 实时播放示例（native 出口）
+#
+# 依赖 ziyu（纯仓颉合成）+ ziyu-play（播放适配）+ play4cj/winsound4cj。
+# 演示「文本 → 流式合成 → 边产边播」的实时链路。
+#
+# 运行：cd examples/play && cjpm run
+# 需 Windows 音频输出环境（winsound4cj 传递依赖）。
+# ============================================================================
+[package]
+  cjc-version = "1.2.0"
+  name = "ziyu_example_play"
+  version = "0.1.0"
+  output-type = "executable"
+  compile-option = "-O2 -Woff unused"
+
+[dependencies]
+  ziyu = { path = "../.." }
+  ziyu_play = { path = "../../ziyu-play" }
+  play4cj = { path = "../../../play4cj" }
+  # 显式 path 声明，强制 cjpm 用本地源码解析传递依赖（避免版本号冲突）
+  audio4cj = { path = "../../../audio4cj" }
+  winsound4cj = { path = "../../../winsound4cj" }

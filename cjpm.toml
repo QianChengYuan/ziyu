@@ -1,0 +1,26 @@
+# ============================================================================
+# ziyu —— 仓颉中文文本前端 + TTS 统一调度层
+#
+# 定位：不做合成引擎，做「中文文本前端（护城河）+ Backend 抽象调度层」。
+#   - 文本前端 ziyu.frontend：归一化 / 分词 / 音素 + 韵律（纯仓颉零依赖）
+#   - 调度层   ziyu.Tts      ：前端产出 → Backend → PCM
+#   - Backend  ziyu.backend  ：TtsBackend 接口 + LocalBackend（共振峰实现）
+#   - 音频容器 ziyu.audio    ：复用 audio4cj.pcm.wavBytes（纯仓颉 WAV 打包）
+#   - 播放输出：不在核心库引入；由使用方（ziyu-play / example）经
+#     play4cj / winsound4cj 挂接，native 能力隔离在调用侧
+#
+# 设计原则：ziyu 核心库**纯仓颉实现，零 FFI / 零 unsafe / 零 @C**。
+# 依赖：仅 audio4cj（纯仓颉解码/编码库，static）
+# ============================================================================
+[package]
+  cjc-version = "1.1.0"
+  name = "ziyu"
+  version = "0.1.0"
+  output-type = "static"
+  description = "Cangjie Chinese text frontend + TTS scheduling layer (no FFI in core)"
+  authors = ["yuan_1992"]
+  license = ["Apache-2.0"]
+  compile-option = "-O2 -Woff unused"
+
+[dependencies]
+  audio4cj = { path = "../audio4cj" }

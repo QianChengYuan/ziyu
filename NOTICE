@@ -1,0 +1,56 @@
+ziyu（字语）—— 仓颉中文文本前端 + TTS 统一调度层
+Copyright (c) 2026 yuan_1992
+Licensed under Apache-2.0 (see LICENSE).
+
+
+第三方数据致谢
+===============
+
+1. 拼音单字词典（20903 条汉字→带调拼音）
+   来源：中心仓制品 cangjie_tpc::pinyin4cj 1.0.5
+   上游：https://gitcode.com/Cangjie-TPC/pinyin4cj
+   版权：(c) Huawei Technologies Co., Ltd. 2023-2026
+   许可：MIT License
+   用途：ziyu/src/frontend/pinyin_dict.cj（运行期解析为 HashMap）
+   经由：formant4cj 项目 tools/gen_pinyin_data.py 生成原始数据，
+        ziyu 复刻数据并去声调符号输出无调/带调拼音
+
+2. 韵母共振峰参数（成年男性测量值）
+   来源：吴宗济、林茂灿《实验语音学概要》中国社会科学出版社 1989
+   来源：Lee & Zee, "Standard Chinese (Beijing)", IPA Handbook 2003
+   用途：ziyu/src/synth/phoneme_table.cj 韵母共振峰表
+   说明：公开学术文献实验测量值，非第三方代码，无版权限制
+
+3. 声母 F2 locus 参数
+   来源：eSpeak NG phsource/ph_cmn
+   上游：https://github.com/espeak-ng/espeak-ng
+   版权：GNU General Public License v3
+   用途：ziyu/src/synth/phoneme_table.cj 声母参数表 F2 locus 参考值
+   说明：仅参考 Vowelout/Vowelin 参数中的 F2 locus 数值，未复制代码
+
+4. 共振峰带宽推荐值
+   来源：Klatt, D.H. "Software for a cascade/parallel formant synthesizer"
+         JASA 1980
+   用途：ziyu/src/synth/phoneme_table.cj DEFAULT_B1/B2/B3
+   说明：公开学术文献推荐值，非第三方代码，无版权限制
+
+
+MIT License (pinyin4cj 数据)
+----------------------------
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

@@ -1,0 +1,13 @@
+[package]
+  cjc-version = "1.2.0"
+  name = "ziyu_example_cloud"
+  version = "0.1.0"
+  output-type = "executable"
+
+[dependencies]
+  ziyu = { path = "../.." }
+  ziyu_cloud = { path = "../../../ziyu-cloud" }
+  audio4cj = { path = "../../../audio4cj" }
+
+[target.x86_64-w64-mingw32.bin-dependencies]
+    path-option = ["C:/Users/76860/.cangjie/stdx/cangjie-stdx-windows-x64-1.2.0-beta.02.1/dynamic/stdx"]

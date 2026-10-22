@@ -1,0 +1,21 @@
+# ============================================================================
+# ziyu-play —— 流式合成播放适配模块（含 native 依赖）
+#
+# 依赖 ziyu（纯仓颉合成）+ play4cj（播放适配，传递依赖 winsound4cj）。
+# 提供 ZiyuPlayer：阻塞拉取 SynthesisStream 逐块喂入 PcmSink，实现边产边播。
+# 这是 native 出口：ziyu 核心零 FFI，播放能力在此模块经 play4cj/winsound4cj 挂接。
+# 示例用法见 ziyu/examples/play。
+# ============================================================================
+[package]
+  cjc-version = "1.2.0"
+  name = "ziyu_play"
+  version = "0.1.0"
+  output-type = "static"
+  compile-option = "-O2 -Woff unused"
+
+[dependencies]
+  ziyu = { path = ".." }
+  play4cj = { path = "../../play4cj" }
+  # 显式 path 声明，强制 cjpm 用本地源码解析传递依赖（避免版本号冲突）
+  audio4cj = { path = "../../audio4cj" }
+  winsound4cj = { path = "../../winsound4cj" }
